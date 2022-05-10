@@ -16,3 +16,17 @@ function createSequentialNumbers(array, n) {
         array.push(i);
     }
 }
+
+function createRandomNumbers(array, n){
+    for (var i = 1; i <= n; i++){
+        var num = Math.floor(Math.random()*100);
+        array.push(num);
+    }
+}
+
+function createRandomNumbersNew(array, n){
+    for (var i = 1; i <= n; i++){
+        var num = Math.floor(Math.random()*20) + 1;
+        array.push(num);
+    }
+}

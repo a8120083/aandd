@@ -10,10 +10,62 @@
 
     <script>
         function runButtonPressed() {
+            var numbers = [];
             //prac3-1 10個の乱数の合計を求める（繰り返しで）
-            //prac3-2 10個の乱数の平均を求める
-            //prac3-3 10個の乱数の最大値を求める
-            //prac3-4 10個の乱数の最小値を求める
+            var sum = 0;
+            createSequentialNumbers(numbers, 10)
+            show(numbers);
+            for (var j = 0; j < 10; j++){
+                sum += numbers[j];
+            }
+            show(sum)
+            // //prac3-2 10個の乱数の平均を求める
+            var sum = 0;
+            createSequentialNumbers(numbers, 10)
+            show(numbers);
+            for (var j = 0; j < 10; j++){
+                sum += numbers[j];
+            }
+            var ave = sum/10;
+            show(ave);
+            // //prac3-3 10個の乱数の最大値を求める
+            var max = 0;
+            createRandomNumbersNew(numbers,10);
+            for (var k = 0; k < 20; k++){
+                if(max < numbers[k]){
+                    max = numbers[k];
+                }
+            }
+            show(numbers);
+            show(max);
+            // //prac3-4 10個の乱数の最小値を求める
+            var min = 20;
+            createRandomNumbersNew(numbers,10);
+            for (var k = 0; k < 20; k++){
+                if(min > numbers[k]){
+                    min = numbers[k];
+                }
+            }
+            show(numbers);
+            show(min);
+        }
+        function show(obj) {
+            if (Array.isArray(obj)) {
+                var html = '';
+                html = html + '<table border="1">';
+                html = html + '<tr>';
+                for (var i = 0; i < obj.length; i++) {
+                    html = html + '<td>' + obj[i] + '</td>';
+                }
+                html = html + '</tr>';
+                html = html + '</table>';
+                //html = html + '<br>';
+                document.getElementById('res').insertAdjacentHTML('beforeend', html);
+            } else {
+                var string = JSON.stringify(obj);
+                string = string + '<br>';
+                document.getElementById('res').insertAdjacentHTML('beforeend', string);
+            }
         }
     </script>
 
@@ -23,6 +75,7 @@
     <h1>prac3</h1>
     <button onclick="runButtonPressed()">run!</button>
     <p id="res"></p>
+    <p id="ans"></p>
 </body>
 
 </html>
