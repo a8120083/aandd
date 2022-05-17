@@ -11,8 +11,10 @@
     <script>
         function runButtonPressed() {
             var numbers = [];
-            createOrderedRandomNumbers(numbers, 20);
+            createOrderedRandomNumbers(numbers, 10);
             show(numbers);
+            rinia(numbers, 14)
+            binalAns(numbers, 14)
         }
 
         //この関数を，aaandd.jsに加えてください．
@@ -28,6 +30,7 @@
                 }
             }
         }
+
 
         //配列以外の変数を表示するために，aaandd.jsの中身を新しいshowに置き換えてください．
         function show(obj) {
@@ -48,6 +51,68 @@
                 document.getElementById('res').insertAdjacentHTML('beforeend', string);
             }
         }
+
+        
+        function rinia(arry, search){
+        for (var j = 0; j < arry.length ;j++){
+            if (search == arry[j]){
+                show(j);
+                break;
+            }
+            if(j == arry.length - 1){
+                show('ありませんでした。');
+            }
+        }
+        }
+
+        // function binal(arry, search){
+        //     var countJ = 0;
+        //     for (var k = 0; k < arry.length ;k++){
+        //         var halfnum = Math.floor(arry.length/2)
+        //         var half = arry[Math.floor(arry.length/2)]
+        //         if(half < search){
+        //             arry.splice(0,half);
+        //             countJ += halfnum;
+        //         }else if(half > search){
+        //             arry.splice(half,half+1);
+        //         }else{
+        //             show(halfnum + countJ);
+        //             break;
+        //         }
+        //         if(search != half && halfnum <= 1){
+        //             show('なかった');
+        //             break;
+        //         }
+
+        //     }
+        
+        // }
+
+        function binalAns(arry, search){
+            var upper = arry.length-1;
+            var lower = 0;
+            for (var m = 0; ;m++){
+                var half = Math.floor((upper + lower)/2)
+                if(search > arry[half]){
+                    lower = half;
+                } else if(search < arry[half]){
+                    upper = half;
+                } else {
+                    show(`答えは${half}`);
+                    break;
+                }
+                if(upper == 0 || lower == arry.length-1){
+                    show('なかった');
+                    break;
+                }
+                if(upper - lower <= 1){
+                    show('なかった');
+                    break;
+                }
+            }
+        }
+          
+
     </script>
 
 </head>
@@ -56,6 +121,7 @@
     <h1>ex3-1</h1>
     <button onclick="runButtonPressed()">run!</button>
     <p id="res"></p>
+
 </body>
 
 </html>
