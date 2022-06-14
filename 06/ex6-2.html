@@ -10,26 +10,32 @@
 
     <script>
         function runButtonPressed() {
-            var stack = [];
-
-            stack.push('りんご');
-            stack.push('みかん');
-            stack.push('ばなな');
-
-            show(stack);
-
-            show(stack.pop());
-            show(stack.pop());
-            show(stack.pop());
-
-            show(stack);
+            var text = document.getElementById('tf1').value;
+            show(text);
+            var chars = text.split('');
+            var length = chars.length;
+            show(chars);
+            var newchars = [];
+            for(var i = 0; i < length; i++){
+                var tmp = chars.pop();
+                newchars.push(tmp);
+            }
+            show(newchars);
+            var text2 = newchars.join('');
+            if(text === text2){
+                show('回分でした');
+            } else {
+                show('違った')
+            }
+            
         }
     </script>
 
 </head>
 
 <body>
-    <h1>スタック</h1>
+    <h1>split</h1>
+    <input id="tf1" type="text" value="こんにちは">
     <button onclick="runButtonPressed()">run!</button>
     <p id="res"></p>
 </body>

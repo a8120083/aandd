@@ -14,14 +14,22 @@
     <script>
 
         var nouns;
+        var verbs;
 
         $(document).ready(function () {
             nouns = nounstext.split('\n');
+            verbs = verbstext.split('\n');
         });
 
         function runButtonPressed() {
-            var noun = selectone(nouns);
-            show(noun);
+            var noun1 = selectone(nouns);
+            var noun2 = selectone(nouns);
+            var verb = selectone(verbs);
+            // show(noun1);
+            // show(noun2);
+            // show(verb);
+            var sakubunnsann = noun1 + "は" + noun2 + "を" + verb;
+            show(sakubunnsann)
         }
 
         function selectone(array) {

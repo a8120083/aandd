@@ -13,8 +13,8 @@
             var numbers = [];
             createOrderedRandomNumbers(numbers, 10);
             show(numbers);
-            rinia(numbers, 14)
-            binalAns(numbers, 14)
+            rinia(numbers, 34)
+            binalAns(numbers, 34)
         }
 
         //この関数を，aaandd.jsに加えてください．
@@ -79,7 +79,11 @@
         //             show(halfnum + countJ);
         //             break;
         //         }
-        //         if(search != half && halfnum <= 1){
+        //         if(upper == 0 || lower == arry.length-1){
+        //             show('なかった');
+        //             break;
+        //         }
+        //         if(upper - lower <= 1){
         //             show('なかった');
         //             break;
         //         }

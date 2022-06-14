@@ -13,8 +13,15 @@
             var text = document.getElementById('tf1').value;
             show(text);
             var chars = text.split('');
+            var length = chars.length;
             show(chars);
-            var text2 = chars.join('');
+            var newchars = [];
+            for(var i = 0; i < length; i++){
+                var tmp = chars.pop();
+                newchars.push(tmp);
+            }
+            show(newchars);
+            var text2 = newchars.join('');
             show(text2);
         }
 
